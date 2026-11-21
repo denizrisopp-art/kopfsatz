@@ -1,0 +1,64 @@
+name: Kopfsatz Reel des Tages
+on:
+  schedule:
+    - cron: '41 12 * * *'   # täglich 13:41 Berlin (Winterzeit), Post um 19 Uhr über n8n
+  workflow_dispatch:
+    inputs:
+      eintrag:
+        description: 'Bestimmter Eintrag (id), leer = nächster geprüfter'
+        required: false
+        default: ''
+      test:
+        description: 'Testlauf: nur Telegram, nicht auf Instagram posten'
+        type: boolean
+        default: true
+permissions:
+  contents: write
+concurrency:
+  group: reel
+  cancel-in-progress: false
+env:
+  N8N_STIMME_URL: https://abkuerzung.app.n8n.cloud/webhook/kopfsatz-stimme
+  N8N_POSTEN_URL: https://abkuerzung.app.n8n.cloud/webhook/kopfsatz-posten
+jobs:
+  reel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+      - name: Schriften bereitstellen
+        run: |
+          mkdir -p public/fonts
+          cp node_modules/@fontsource/geist-sans/files/geist-sans-latin-{400,500,600,700,800}-normal.woff2 public/fonts/
+          cp node_modules/@fontsource/instrument-serif/files/instrument-serif-latin{,-ext}-400-{normal,italic}.woff2 public/fonts/
+      - name: Reel bauen
+        id: bau
+        env:
+          EINTRAG_ID: ${{ inputs.eintrag }}
+        run: node scripts/reel.mjs
+      - name: Video ablegen und Eintrag einplanen
+        if: steps.bau.outputs.fertig == 'ja'
+        id: ablage
+        run: |
+          TAG="${{ steps.bau.outputs.id }}-$(date +%H%M%S)"
+          mkdir -p videos
+          cp out/reel.mp4 "videos/$TAG.mp4"
+          if [ "${{ inputs.test }}" != "true" ]; then
+            node -e "const fs=require('fs');const b=JSON.parse(fs.readFileSync('bank/zitate.json','utf8'));const e=b.find(x=>x.id==='${{ steps.bau.outputs.id }}');e.status='eingeplant';e.eingeplant_am=new Date().toISOString().slice(0,10);fs.writeFileSync('bank/zitate.json',JSON.stringify(b,null,1)+'\n');"
+          fi
+          git config user.name "kopfsatz-maschine"
+          git config user.email "kopfsatz-maschine@users.noreply.github.com"
+          git add "videos/$TAG.mp4" bank/zitate.json
+          git commit -m "Reel $TAG"
+          git push
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+      - name: An n8n zum Posten übergeben
+        if: steps.bau.outputs.fertig == 'ja'
+        run: |
+          sleep 20
+          curl -sS -f -X POST "$N8N_POSTEN_URL" -H 'content-type: application/json' \
+            -d "{\"id\":\"${{ steps.bau.outputs.id }}\",\"tag\":\"${{ steps.ablage.outputs.tag }}\",\"test\":${{ inputs.test == true }}}"
