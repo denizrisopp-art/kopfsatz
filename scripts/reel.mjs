@@ -2,6 +2,7 @@
 // Ablauf: nächsten geprüften Eintrag aus bank/zitate.json nehmen -> Stimme über n8n (ElevenLabs) -> Szenen nach Stimme timen -> Remotion -> out/reel.mp4
 import fs from 'node:fs';
 import path from 'node:path';
+import { execSync } from 'node:child_process';
 import { bundle } from '@remotion/bundler';
 import { renderMedia, selectComposition } from '@remotion/renderer';
 
@@ -33,10 +34,13 @@ if (!tts.audio_base64 || !tts.alignment) throw new Error('Stimme fehlt: ' + JSON
 if (tts.text && tts.text !== volltext) console.log('Hinweis: Text aus n8n weicht ab');
 const pub = path.resolve('public');
 fs.mkdirSync(pub, { recursive: true });
-fs.writeFileSync(path.join(pub, 'stimme.mp3'), Buffer.from(tts.audio_base64, 'base64'));
+// Tempo: die Stimme etwas zügiger machen (Tonhöhe bleibt), Zeitstempel entsprechend umrechnen
+const TEMPO = Number(process.env.TEMPO || 1.2);
+fs.writeFileSync(path.join(pub, 'stimme-roh.mp3'), Buffer.from(tts.audio_base64, 'base64'));
+execSync(`npx remotion ffmpeg -y -loglevel error -i "${path.join(pub, 'stimme-roh.mp3')}" -filter:a "atempo=${TEMPO}" -b:a 192k "${path.join(pub, 'stimme.mp3')}"`, { stdio: 'inherit' });
 const al = tts.alignment;
-const zS = al.character_start_times_seconds;
-const zE = al.character_end_times_seconds;
+const zS = al.character_start_times_seconds.map((x) => x / TEMPO);
+const zE = al.character_end_times_seconds.map((x) => x / TEMPO);
 const ende = zE[zE.length - 1];
 
 // 2) Szenen nach der Stimme timen
