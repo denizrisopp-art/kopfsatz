@@ -18,8 +18,8 @@ concurrency:
   group: reel
   cancel-in-progress: false
 env:
-  N8N_STIMME_URL: https://abkuerzung.app.n8n.cloud/webhook/kopfsatz-stimme
-  N8N_POSTEN_URL: https://abkuerzung.app.n8n.cloud/webhook/kopfsatz-posten
+  N8N_STIMME_URL: https://ultra-starring-penalize.ngrok-free.dev/webhook/kopfsatz-stimme
+  N8N_POSTEN_URL: https://ultra-starring-penalize.ngrok-free.dev/webhook/kopfsatz-posten
 jobs:
   reel:
     runs-on: ubuntu-latest
