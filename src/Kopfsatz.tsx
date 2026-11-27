@@ -40,6 +40,7 @@ export interface KopfsatzProps {
   ton?: { start: number; ende: number }[]; // Sekunden im Audio je Szene
   aberAb?: number; // Bild in Szene 4, ab dem das „Aber“ erscheint
   musik?: string; // optionales Musikbett in public/
+  these?: boolean; // Serie 2: These in eigenen Worten statt wörtlichem Zitat (keine Anführungszeichen)
 }
 
 export const STANDARD_SZENEN = [75, 150, 105, 180, 90, 105, 90];
@@ -206,6 +207,7 @@ const Szene: React.FC<{ dauer: number; sofort?: boolean; children: React.ReactNo
 const Etikett: React.FC<{ text: string; start?: number; farbe?: string; statisch?: boolean }> = ({ text, start = 0, farbe = C.akzent, statisch }) => {
   const f = useCurrentFrame();
   const p = statisch ? 1 : interpolate(f - start, [0, 14], [0, 1], { ...clamp, easing: ease });
+  const lang = text.length > 30;
   return (
     <div
       style={{
@@ -219,15 +221,18 @@ const Etikett: React.FC<{ text: string; start?: number; farbe?: string; statisch
         backdropFilter: 'blur(10px)',
         fontFamily: SANS,
         fontWeight: 600,
-        fontSize: 30,
-        letterSpacing: '0.14em',
+        fontSize: lang ? 24 : 30,
+        letterSpacing: lang ? '0.08em' : '0.14em',
+        lineHeight: 1.25,
+        maxWidth: BREITE,
+        whiteSpace: 'normal',
         textTransform: 'uppercase',
         color: C.text,
         opacity: p,
         transform: `translateX(${(1 - p) * -30}px)`,
       }}
     >
-      <span style={{ width: 14, height: 14, borderRadius: 7, background: farbe, boxShadow: `0 0 16px ${farbe}` }} />
+      <span style={{ flex: '0 0 auto', width: 14, height: 14, borderRadius: 7, background: farbe, boxShadow: `0 0 16px ${farbe}` }} />
       {text}
     </div>
   );
@@ -271,6 +276,11 @@ const Zitat: React.FC<{ p: KopfsatzProps }> = ({ p }) => {
   const autor = interpolate(f, [autorAb, autorAb + 18], [0, 1], { ...clamp, easing: ease });
   return (
     <>
+      {p.these ? (
+        <Block top={560}>
+          <Etikett text="Die Idee, in eigenen Worten" />
+        </Block>
+      ) : (
       <div
         style={{
           position: 'absolute',
@@ -287,6 +297,7 @@ const Zitat: React.FC<{ p: KopfsatzProps }> = ({ p }) => {
       >
         “
       </div>
+      )}
       <Block top={700}>
         <Woerter
           text={p.zitat}
@@ -474,7 +485,7 @@ export const Kopfsatz: React.FC<KopfsatzProps> = (p) => {
   const teile: React.ReactNode[] = [
     <Hook p={p} />,
     <Zitat p={p} />,
-    <TextSzene etikett="Was er meinte" text={p.gemeint} />,
+    <TextSzene etikett="Was das heißt" text={p.gemeint} />,
     <Forschung p={p} />,
     <UrteilSzene p={p} />,
     <TextSzene etikett="Was du damit machst" text={p.tipp} farbe={C.bestaetigt} />,
