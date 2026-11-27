@@ -34,10 +34,16 @@ if (!tts.audio_base64 || !tts.alignment) throw new Error('Stimme fehlt: ' + JSON
 if (tts.text && tts.text !== volltext) console.log('Hinweis: Text aus n8n weicht ab');
 const pub = path.resolve('public');
 fs.mkdirSync(pub, { recursive: true });
-// Tempo: die Stimme etwas zügiger machen (Tonhöhe bleibt), Zeitstempel entsprechend umrechnen
-const TEMPO = Number(process.env.TEMPO || 1.08); // seit 27.11.: kürzere Texte (max. 340 Zeichen), ruhigere Stimme
+// Tempo: seit 27.11. abends 1,0 = Stimme unverändert (natürliches Sprechtempo der Stimme, keine Nachbeschleunigung,
+// die klang maschinell). Nur zum Testen per Umgebungsvariable TEMPO änderbar; Zeitstempel werden dann umgerechnet.
+const TEMPO = Number(process.env.TEMPO || 1.0);
 fs.writeFileSync(path.join(pub, 'stimme-roh.mp3'), Buffer.from(tts.audio_base64, 'base64'));
-execSync(`npx remotion ffmpeg -y -loglevel error -i "${path.join(pub, 'stimme-roh.mp3')}" -filter:a "atempo=${TEMPO}" -b:a 192k "${path.join(pub, 'stimme.mp3')}"`, { stdio: 'inherit' });
+if (TEMPO !== 1) {
+  execSync(`npx remotion ffmpeg -y -loglevel error -i "${path.join(pub, 'stimme-roh.mp3')}" -filter:a "atempo=${TEMPO}" -b:a 192k "${path.join(pub, 'stimme.mp3')}"`, { stdio: 'inherit' });
+} else {
+  fs.copyFileSync(path.join(pub, 'stimme-roh.mp3'), path.join(pub, 'stimme.mp3'));
+}
+console.log('Stimme:', tts.modell || 'unbekannt', '| Tempo', TEMPO);
 const al = tts.alignment;
 const zS = al.character_start_times_seconds.map((x) => x / TEMPO);
 const zE = al.character_end_times_seconds.map((x) => x / TEMPO);
@@ -55,7 +61,7 @@ const ton = teile.map((t, i) => ({
 const szenen = ton.map((t, i) => Math.max(MIN[i], Math.ceil((t.ende - t.start) * FPS) + 6));
 // Ab wann das „Aber/Nur“ in Szene 4 gesprochen wird
 const s4 = teile[3];
-const m = s4.search(/(Aber|Nur|Doch)[:,]/);
+const m = s4.search(/\b(Aber|Doch)\b|\bNur\b/); // seit 27.11.: gesprochen ohne Doppelpunkt („Aber nur …“)
 const aberAb = m > 0 ? Math.max(40, Math.round((zeit(pos[3] + m) - ton[3].start) * FPS) - 4) : 112;
 
 const props = {
