@@ -35,7 +35,7 @@ if (tts.text && tts.text !== volltext) console.log('Hinweis: Text aus n8n weicht
 const pub = path.resolve('public');
 fs.mkdirSync(pub, { recursive: true });
 // Tempo: die Stimme etwas zügiger machen (Tonhöhe bleibt), Zeitstempel entsprechend umrechnen
-const TEMPO = Number(process.env.TEMPO || 1.2);
+const TEMPO = Number(process.env.TEMPO || 1.08); // seit 27.11.: kürzere Texte (max. 340 Zeichen), ruhigere Stimme
 fs.writeFileSync(path.join(pub, 'stimme-roh.mp3'), Buffer.from(tts.audio_base64, 'base64'));
 execSync(`npx remotion ffmpeg -y -loglevel error -i "${path.join(pub, 'stimme-roh.mp3')}" -filter:a "atempo=${TEMPO}" -b:a 192k "${path.join(pub, 'stimme.mp3')}"`, { stdio: 'inherit' });
 const al = tts.alignment;
@@ -62,7 +62,7 @@ const props = {
   serie: eintrag.serie, hook: eintrag.hook, zitat: eintrag.zitat, autor: eintrag.autor, jahr: String(eintrag.jahr), werk: eintrag.werk,
   gemeint: eintrag.gemeint, fakt_zahl: Number(eintrag.fakt_zahl), fakt_einheit: eintrag.fakt_einheit, fakt_text: eintrag.fakt_text,
   fakt_quelle: eintrag.fakt_quelle, aber: eintrag.aber, urteil: eintrag.urteil, tipp: eintrag.tipp, ende: eintrag.ende,
-  szenen, audio: 'stimme.mp3', ton, aberAb,
+  szenen, audio: 'stimme.mp3', ton, aberAb, these: eintrag.these === true,
 };
 if (fs.existsSync(path.join(pub, 'musik.mp3'))) props.musik = 'musik.mp3';
 fs.writeFileSync('props.json', JSON.stringify(props, null, 1));
