@@ -298,8 +298,8 @@
    "Ein Verlust tut dir doppelt weh.",
    "Verluste wiegen für uns schwerer als gleich große Gewinne.",
    "Verlieren zählt mehr als Gewinnen.",
-   "607 Schätzungen aus 150 Studien: Verluste wiegen etwa doppelt. Aber: nur ein Mittelwert.",
-   "Urteil: bestätigt.",
+   "Über 600 Schätzungen aus 150 Studien sagen: etwa doppelt. Aber das ist ein Mittelwert.",
+   "Hatte er recht? Ja.",
    "Frag dich bei Entscheidungen: Was gewinne ich?",
    "Schick das der Person, die sich nie entscheiden kann."
   ],
@@ -337,8 +337,8 @@
    "Deine Erinnerung schönt dich.",
    "Das kann ich nicht getan haben, sagt mein Stolz.",
    "Am Ende gibt das Gedächtnis nach.",
-   "5 Versuche mit 3190 Menschen: Wir erinnern uns großzügiger. Aber: vor allem, wo wir eigene Maßstäbe brechen.",
-   "Urteil: bestätigt.",
+   "Fünf Versuche, über 3000 Leute: Wir erinnern uns großzügiger. Aber vor allem, wo wir eigene Maßstäbe brechen.",
+   "Hatte er recht? Ja.",
    "Schreib Entscheidungen sofort auf.",
    "Schick das der Person, die sich immer anders erinnert als du."
   ],
@@ -375,9 +375,9 @@
    "Du redest dir alles schön.",
    "Passt dein Handeln nicht zu deiner Meinung, änderst du eher die Meinung.",
    "Wir biegen uns Gründe zurecht.",
-   "39 Labore. Freiwillig oder nicht: kein Unterschied. Aber: Meinungen kippten trotzdem etwas.",
-   "Urteil: teilweise.",
-   "Frag dich: Glaube ich das wirklich?",
+   "39 Labore sagen: Freiwillig oder nicht, egal. Aber die Meinungen kippten trotzdem etwas.",
+   "Stimmt das? Zum Teil.",
+   "Frag dich: Glaub ich das wirklich?",
    "Was hast du dir zuletzt schöngeredet? Denn du redest dir …"
   ],
   "caption": "Kognitive Dissonanz erklärt: Reden wir uns Entscheidungen schön? Stimmt Festingers berühmteste Idee?\n\nDie Idee in eigenen Worten: Passt dein Handeln nicht zu deiner Meinung, änderst du eher die Meinung.\n– Leon Festinger, A Theory of Cognitive Dissonance (1957). Kein wörtliches Zitat.\n\nWas die Forschung sagt: Die bisher größte Wiederholung des klassischen Versuchs (39 Labore, 19 Länder, 4898 Menschen) fand den Kerneffekt nicht: Ob Menschen freiwillig gegen ihre Meinung schrieben oder nicht, machte keinen Unterschied. Ihre Meinung verschob sich nach dem Schreiben trotzdem etwas.\nStudie: Vaidis u. a. (2024), Advances in Methods and Practices in Psychological Science – doi.org/10.1177/25152459231213375\n\nUrteil: Teilweise.\n\nTipp: Frag dich: Glaube ich das wirklich?\n\nWas hast du dir zuletzt schöngeredet? Schreib es in die Kommentare.",
@@ -414,9 +414,9 @@
    "Dein Neid verrät mehr, als du denkst.",
    "Der Neid der Menschen zeigt an, wie unglücklich sie sich fühlen.",
    "Viel Neid, wenig Glück.",
-   "8 Jahre begleitet: Neidischen ging es später schlechter. Aber: Motiviert hat Neid nicht.",
-   "Urteil: bestätigt.",
-   "Frag bei Neid: Was will ich wirklich?",
+   "8 Jahre begleitet: Neidischen ging's später schlechter. Aber motiviert hat Neid nicht.",
+   "Hatte er recht? Leider ja.",
+   "Frag dich: Was will ich wirklich?",
    "Schick das der Person, die nachts durch fremde Profile scrollt."
   ],
   "caption": "Schopenhauer-Zitat erklärt: Macht Neid unglücklich? Eine Langzeitstudie mit 18.000 Erwachsenen.\n\n„Der Neid der Menschen zeigt an, wie unglücklich sie sich fühlen.“\n– Arthur Schopenhauer, Aphorismen zur Lebensweisheit (1851)\n\nWas die Forschung sagt: 18.000 Erwachsene wurden 2005, 2009 und 2013 befragt. Wer neidischer war, hatte später schlechteres seelisches Wohlbefinden. Neid sagte weder mehr Wohlbefinden noch beruflichen Erfolg voraus.\nStudie: Mujcic & Oswald (2018), Social Science & Medicine – pubmed.ncbi.nlm.nih.gov/29316510\n\nUrteil: Bestätigt.\n\nTipp: Merkst du Neid, frag: Was davon will ich wirklich für mich?\n\nSchick das der Person, die nachts durch fremde Profile scrollt.",
@@ -452,8 +452,8 @@
    "Unerledigtes merkst du dir besser? Falsch.",
    "Unerledigte Aufgaben merkst du dir besser als erledigte.",
    "Offenes bleibt im Kopf hängen.",
-   "59 Arbeiten zeigen: kein Gedächtnisvorteil. Aber: Der Drang, weiterzumachen, ist echt.",
-   "Urteil: widerlegt.",
+   "59 Arbeiten: kein Gedächtnisvorteil. Aber der Drang weiterzumachen ist echt.",
+   "Stimmt also nicht.",
    "Schreib Offenes auf, mit nächstem Schritt.",
    "Was geht dir abends nicht aus dem Kopf? Denn Unerledigtes …"
   ],
@@ -490,11 +490,11 @@
   "sprechtext": [
    "Nicht der Stau nervt dich. Sondern das.",
    "Nicht die Dinge selbst, sondern die Meinungen … beunruhigen die Menschen.",
-   "Dein Urteil macht den Ärger.",
-   "306 Vergleiche zeigen: Umdeuten hilft. Aber: nur klein bis mittel.",
-   "Urteil: teilweise.",
+   "Heißt: Dein Urteil macht den Ärger.",
+   "306 Vergleiche zeigen: Umdeuten hilft. Aber nur klein bis mittel.",
+   "Stimmt zum Teil.",
    "Frag dich: Wie sähe eine Freundin das?",
-   "Was nervt dich mehr: der Stau oder dein Kopf? Denn nicht der Stau …"
+   "Was nervt dich mehr, der Stau oder dein Kopf? Denn nicht der Stau …"
   ],
   "caption": "Epiktet-Zitat erklärt: Regen uns Dinge auf oder unsere Gedanken darüber? Was die Emotionsforschung sagt.\n\n„Nicht die Dinge selbst, sondern die Meinungen über dieselben beunruhigen die Menschen.“\n– Epiktet, Handbüchlein der Moral 5 (um 125 n. Chr.), Übersetzung Carl Hilty\n\nWas die Forschung sagt: Eine Meta-Analyse von 306 Vergleichen zeigt: Eine Situation umzudeuten verbessert Gefühle mit kleinem bis mittlerem Effekt; sie aus der Sicht anderer zu betrachten wirkte am stärksten.\nStudie: Webb, Miles & Sheeran (2012), Psychological Bulletin – doi.org/10.1037/a0027600\n\nUrteil: Teilweise.\n\nTipp: Frag dich beim nächsten Ärger: Wie würde eine Freundin das sehen?\n\nWas nervt dich mehr: der Stau oder dein Kopf? Schreib es in die Kommentare.",
   "hashtags": "#psychologie #stoizismus #epiktet #gefühle #gelassenheit",
@@ -529,8 +529,8 @@
    "Deine Kindheit bestimmt deine Liebe? Nicht ganz.",
    "Deine frühe Bindung prägt deine Beziehungen als Erwachsener.",
    "Kindheit als Vorlage.",
-   "19 Jahre verglichen: Bindung bleibt nur mäßig stabil. Aber: Erlebnisse verändern sie.",
-   "Urteil: teilweise.",
+   "19 Jahre lang verglichen: Bindung bleibt nur mäßig stabil. Aber Erlebnisse verändern sie.",
+   "Stimmt also nur halb.",
    "Dein Bindungsstil ist kein Urteil für immer.",
    "Kann man sich umgewöhnen? Denn deine Kindheit …"
   ],
@@ -568,8 +568,8 @@
    "Aufschieben kostet dich mehr, als du denkst.",
    "Der größte Verlust des Lebens ist das Aufschieben.",
    "Wer verschiebt, verliert das Heute.",
-   "2 Studien zeigen: Aufschieber hatten schlechtere Noten. Aber: Anfangs waren sie entspannter.",
-   "Urteil: bestätigt.",
+   "Zwei Studien zeigen: Aufschieber hatten schlechtere Noten. Aber anfangs waren sie entspannter.",
+   "Hatte er recht? Ja.",
    "Mach heute nur fünf Minuten.",
    "Schick das der Person, die alles auf morgen schiebt."
   ],
@@ -606,8 +606,8 @@
    "Die Ahnungslosen sind am sichersten? Fast.",
    "Wer wenig kann, überschätzt sich am meisten.",
    "Ohne Können fehlt auch der Blick dafür.",
-   "929 Menschen getestet: Fehleinschätzung war überall ähnlich groß. Aber: Die Debatte läuft noch.",
-   "Urteil: teilweise.",
+   "Über 900 Leute getestet: Die Fehleinschätzung war überall ähnlich groß. Aber die Debatte läuft noch.",
+   "Stimmt's? So halb.",
    "Frag jemanden, der es besser kann.",
    "Wo überschätzt du dich selbst? Denn die Ahnungslosen …"
   ],
@@ -644,11 +644,11 @@
   "sprechtext": [
    "Deine Angst tut jetzt schon weh.",
    "Wer fürchtet zu leiden, leidet schon an dem, was er fürchtet.",
-   "Warten tut selbst weh.",
-   "28 Prozent nahmen lieber stärkere Stromstöße, statt zu warten. Aber: Nur 32 Menschen.",
-   "Urteil: teilweise.",
+   "Heißt: Warten tut weh.",
+   "28 Prozent nahmen lieber stärkere Stromstöße, statt zu warten. Aber nur 32 Leute.",
+   "Hatte er recht? Zum Teil.",
    "Zieh Unangenehmes vor, statt es anzustarren.",
-   "Was ist schlimmer: das Warten oder das Ding selbst? Denn deine Angst …"
+   "Was ist schlimmer, das Warten oder das Ding? Denn deine Angst …"
   ],
   "caption": "Montaigne-Zitat erklärt: Ist Warten auf Schlimmes schlimmer als das Schlimme selbst? Ein Experiment zur Angst vor dem Warten.\n\n„Wer fürchtet zu leiden, leidet schon an dem, was er fürchtet.“\n– Michel de Montaigne, Essais III, 13 (1595, eigene Übersetzung aus dem Französischen: „Qui craint de souffrir, il souffre desjà de ce qu’il craint.“)\n\nWas die Forschung sagt: 32 Menschen warteten im Hirnscanner auf leichte Stromstöße. Die meisten wollten es lieber schneller hinter sich haben; 28 % nahmen dafür sogar einen stärkeren Stromstoß in Kauf.\nStudie: Berns u. a. (2006), Science – doi.org/10.1126/science.1123721\n\nUrteil: Teilweise.\n\nTipp: Zieh Unangenehmes vor, statt es anzustarren.\n\nWas ist schlimmer: das Warten oder das Ding selbst? Schreib es in die Kommentare.",
   "hashtags": "#psychologie #montaigne #angst #sorgen #philosophie",
@@ -683,8 +683,8 @@
    "Du machst, was andere machen.",
    "Wenn wir unsicher sind, tun wir, was die meisten tun.",
    "Andere sind unser Kompass.",
-   "44 Prozent der Hotelgäste nahmen Handtücher nochmal, wenn es hieß: Die meisten tun das. Aber: Sonst nur 35 Prozent.",
-   "Urteil: bestätigt.",
+   "44 Prozent der Hotelgäste nahmen ihr Handtuch nochmal, wenn da stand: Die meisten tun das. Aber sonst nur 35.",
+   "Stimmt also.",
    "Frag dich: Will ich das, oder alle?",
    "Schick das der Person, die immer kauft, was alle kaufen."
   ],
@@ -722,8 +722,8 @@
    "Hinterher wusstest du es immer schon?",
    "Das Leben muss rückwärts verstanden … aber vorwärts gelebt werden.",
    "Klarheit kommt erst hinterher.",
-   "95 Studien zeigen: Hinterher wirkt alles vorhersehbarer. Aber: nur klein bis mittel.",
-   "Urteil: teilweise.",
+   "95 Studien zeigen: Hinterher wirkt alles vorhersehbarer. Aber nur klein bis mittel.",
+   "Recht gehabt? Teilweise.",
    "Notier vorher, was du erwartest.",
    "Welche Entscheidung verstehst du erst heute? Denn hinterher …"
   ],
@@ -759,9 +759,9 @@
   "sprechtext": [
    "Der Marshmallow-Test sagt deine Zukunft? Kaum.",
    "Wer als Kind warten kann, hat später mehr Erfolg.",
-   "Früh Geduld, später Erfolg.",
-   "918 Kinder neu getestet: Der Zusammenhang war klein. Aber: Mit Familie und Herkunft verschwand er fast.",
-   "Urteil: teilweise.",
+   "Also: früh Geduld, später Erfolg.",
+   "918 Kinder neu getestet: Der Zusammenhang war klein. Aber mit Familie und Herkunft verschwand er fast.",
+   "Stimmt das? Kaum.",
    "Leg Versuchungen außer Sicht.",
    "Hättest du als Kind gewartet? Denn der Marshmallow-Test …"
   ],
@@ -798,9 +798,9 @@
   "sprechtext": [
    "Aufgeben ist gelernt? Andersrum.",
    "Wer oft scheitert, lernt: Kämpfen lohnt sich nicht.",
-   "Hilflosigkeit wird antrainiert.",
-   "50 Jahre Forschung: Passiv sein ist der Normalzustand. Aber: Gelernt wird das Gegenteil, Kontrolle.",
-   "Urteil: widerlegt.",
+   "Hilflosigkeit wird also antrainiert.",
+   "50 Jahre Forschung sagen: Passiv sein ist der Normalzustand. Aber gelernt wird das Gegenteil, Kontrolle.",
+   "Stimmt so nicht.",
    "Kleine Erfolge zeigen dir: Ich kann was tun.",
    "Wo hast du zu früh aufgegeben? Denn aufgeben …"
   ],
