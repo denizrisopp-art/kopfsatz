@@ -54,11 +54,21 @@ const pos = [];
 let p = 0;
 teile.forEach((t) => { pos.push(p); p += t.length + 1; });
 const zeit = (i) => zS[Math.min(i, zS.length - 1)];
-const ton = teile.map((t, i) => ({
-  start: i === 0 ? 0 : Math.max(0, zeit(pos[i]) - 0.04),
-  ende: i + 1 < teile.length ? Math.max(0, zeit(pos[i + 1]) - 0.04) : ende + 0.25,
-}));
-const szenen = ton.map((t, i) => Math.max(MIN[i], Math.ceil((t.ende - t.start) * FPS) + 6));
+// Seit 27.11. abends: Jede Szene spielt nur ihren Satz plus eine kurze natürliche Atempause.
+// Vorher lief die ganze Pause der Stimme plus 0,2 s Polster mit: an jedem Schnitt fast 1 s Stille, das klang maschinell.
+const NACH = 0.16; // Sekunden nach dem letzten Laut der Szene
+const VOR = 0.05; // Sekunden vor dem ersten Laut der Szene
+const sprechEnde = (i) => {
+  let m = 0;
+  for (let k = pos[i]; k < Math.min(pos[i] + teile[i].length, zE.length); k++) m = Math.max(m, zE[k]);
+  return m;
+};
+const ton = teile.map((t, i) => {
+  const start = i === 0 ? 0 : Math.max(0, zeit(pos[i]) - VOR);
+  const naechster = i + 1 < teile.length ? Math.max(0, zeit(pos[i + 1]) - VOR) : ende + 0.25;
+  return { start, ende: Math.min(naechster, sprechEnde(i) + NACH) };
+});
+const szenen = ton.map((t, i) => Math.max(MIN[i], Math.ceil((t.ende - t.start) * FPS) + 2));
 // Ab wann das „Aber/Nur“ in Szene 4 gesprochen wird
 const s4 = teile[3];
 const m = s4.search(/\b(Aber|Doch)\b|\bNur\b/); // seit 27.11.: gesprochen ohne Doppelpunkt („Aber nur …“)
