@@ -306,10 +306,11 @@
   "caption": "Verlustaversion erklärt: Warum tut Verlieren mehr weh, als Gewinnen freut? Stimmt Kahnemans berühmteste Idee?\n\nDie Idee in eigenen Worten: Verluste wiegen für uns schwerer als gleich große Gewinne.\n– Daniel Kahneman, Prospect Theory (mit Amos Tversky), Econometrica 47 (1979). Kein wörtliches Zitat.\n\nWas die Forschung sagt: Eine Meta-Analyse mit 607 Schätzungen aus 150 Artikeln kommt auf einen mittleren Verlust-Faktor von rund 1,96: Verluste wiegen im Schnitt etwa doppelt so schwer wie gleich große Gewinne.\nStudie: Brown, Imai, Vieider & Camerer (2024), Journal of Economic Literature – doi.org/10.1257/jel.20221698\n\nUrteil: Bestätigt.\n\nTipp: Frag dich bei Entscheidungen: Was gewinne ich?\n\nSchick das der Person, die sich nie entscheiden kann.",
   "hashtags": "#psychologie #entscheidungen #kahneman #verlustaversion #denkfehler",
   "themenfeld": "Entscheidungen",
-  "status": "geprueft",
+  "status": "eingeplant",
   "geprueft_am": "2026-11-27",
   "notiz": "Serie 2, These in eigenen Worten (Kahneman geschützt, kein Zitat). Meta-Analyse: Mittelwert 1,955, 95 % zwischen 1,82 und 2,10 (Abstract aeaweb.org) geprüft; 27.11. Vorlage mit These-Modus live, Test-Render 23,8 s ok",
-  "these": true
+  "these": true,
+  "eingeplant_am": "2026-11-28"
  },
  {
   "id": "2026-11-29-nietzsche-stolz",
