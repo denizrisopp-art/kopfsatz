@@ -39,7 +39,9 @@ export interface KopfsatzProps {
   audio?: string; // Datei in public/, z. B. stimme.mp3
   ton?: { start: number; ende: number }[]; // Sekunden im Audio je Szene
   aberAb?: number; // Bild in Szene 4, ab dem das „Aber“ erscheint
-  musik?: string; // optionales Musikbett in public/
+  musik?: string; // optionales Musikbett in public/, z. B. musik/bett-1.m4a
+  musikLautstaerke?: number; // Lautstärke des Musikbetts (Standard 0,11), reel.mjs gleicht die Betten an
+  stempel?: string; // optionaler Stempel-Ton in public/, spielt zu Beginn der Urteil-Szene
   these?: boolean; // Serie 2: These in eigenen Worten statt wörtlichem Zitat (keine Anführungszeichen)
 }
 
@@ -479,9 +481,13 @@ export const Marke: React.FC<{ gross?: number }> = ({ gross = 64 }) => (
 );
 
 // ---------- Komposition ----------
+// Der Stempel-Ton schlägt etwa 0,25 s nach seinem Start an; mit 8 Bildern Versatz fällt der Anschlag
+// auf Bild 16 der Urteil-Szene, wo der Stempel im Bild aufsetzt (spring ab Bild 10 erreicht dort 1).
+const STEMPEL_AB = 8;
 export const Kopfsatz: React.FC<KopfsatzProps> = (p) => {
   const d = p.szenen ?? STANDARD_SZENEN;
   const starts = d.reduce<number[]>((acc, x, i) => [...acc, i === 0 ? 0 : acc[i - 1] + d[i - 1]], []);
+  const gesamt = d.reduce((a, b) => a + b, 0);
   const teile: React.ReactNode[] = [
     <Hook p={p} />,
     <Zitat p={p} />,
@@ -495,7 +501,17 @@ export const Kopfsatz: React.FC<KopfsatzProps> = (p) => {
     <AbsoluteFill style={{ backgroundColor: C.grund }}>
       <Aurora />
       <Orb grenzen={starts} />
-      {p.musik ? <Audio src={staticFile(p.musik)} volume={0.12} /> : null}
+      {p.musik ? (
+        <Audio
+          src={staticFile(p.musik)}
+          volume={(f) => (p.musikLautstaerke ?? 0.11) * interpolate(f, [0, 12, gesamt - 24, gesamt], [0, 1, 1, 0], clamp)}
+        />
+      ) : null}
+      {p.stempel ? (
+        <Sequence from={starts[4] + STEMPEL_AB} durationInFrames={45}>
+          <Audio src={staticFile(p.stempel)} volume={0.35} />
+        </Sequence>
+      ) : null}
       {p.audio && p.ton
         ? p.ton.map((t, i) => (
             <Sequence key={'ton' + i} from={starts[i]} durationInFrames={d[i]}>
