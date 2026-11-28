@@ -80,7 +80,24 @@ const props = {
   fakt_quelle: eintrag.fakt_quelle, aber: eintrag.aber, urteil: eintrag.urteil, tipp: eintrag.tipp, ende: eintrag.ende,
   szenen, audio: 'stimme.mp3', ton, aberAb, these: eintrag.these === true,
 };
-if (fs.existsSync(path.join(pub, 'musik.mp3'))) props.musik = 'musik.mp3';
+// Musikbett und Stempel-Ton (seit 28.11.): einmal mit Eleven Music bzw. ElevenLabs Sound Effects aus Deniz' Plan erzeugt,
+// liegen im Repo unter public/musik/ und public/ton/ (Herkunft in QUELLE.md). Das Bett wechselt nach der Position des
+// Eintrags in der Bank. Die Lautstärke gleicht die Betten an: 0,11 bezogen auf ein Bett mit -18 LUFS (gemessen 28.11.).
+// Fehlt eine Datei, läuft das Reel ohne sie weiter. MUSIK=aus schaltet das Bett zum Testen ab.
+const BETTEN = [
+  { datei: 'musik/bett-1.m4a', lufs: -19.7 },
+  { datei: 'musik/bett-2.m4a', lufs: -22.8 },
+  { datei: 'musik/bett-3.m4a', lufs: -16.2 },
+  { datei: 'musik/bett-4.m4a', lufs: -14.7 },
+].filter((b) => fs.existsSync(path.join(pub, b.datei)));
+if (BETTEN.length && process.env.MUSIK !== 'aus') {
+  const nr = Math.max(0, bank.findIndex((e) => e.id === eintrag.id));
+  const bett = BETTEN[nr % BETTEN.length];
+  props.musik = bett.datei;
+  props.musikLautstaerke = Number((0.11 * 10 ** ((-18 - bett.lufs) / 20)).toFixed(3));
+  console.log('Musikbett:', bett.datei, '| Lautstärke', props.musikLautstaerke);
+}
+if (fs.existsSync(path.join(pub, 'ton/stempel.ogg'))) props.stempel = 'ton/stempel.ogg';
 fs.writeFileSync('props.json', JSON.stringify(props, null, 1));
 console.log('Szenen (Bilder):', szenen.join(', '), '| Dauer:', (szenen.reduce((a, b) => a + b, 0) / FPS).toFixed(1), 's');
 
