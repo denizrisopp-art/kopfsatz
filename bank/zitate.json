@@ -811,5 +811,43 @@
   "geprueft_am": "2026-11-27",
   "notiz": "Serie 2, These in eigenen Worten (Seligman lebt). Abstract Maier & Seligman 2016 geprüft; Tierversuche in Caption genannt, keine Klinik; 27.11. Vorlage mit These-Modus live, Test-Render 23,8 s ok",
   "these": true
+ },
+ {
+  "id": "2026-12-12-ebbinghaus-verteilen",
+  "serie": "Hatte Ebbinghaus recht?",
+  "hook": "Du lernst am Abend davor? *Fehler*.",
+  "hook_alt": "Pauken fühlt sich gut an. *Täuscht*.",
+  "zitat": "… eine angemessene *Verteilung* … bedeutend vorteilhafter ist als ihre Kumulierung …",
+  "autor": "Hermann Ebbinghaus",
+  "jahr": "1885",
+  "werk": "Über das Gedächtnis, Abschnitt VIII, § 34",
+  "fundstelle_link": "https://projekt-gutenberg.org/authors/hermann-ebbinghaus/books/ueber-das-gedaechtnis/chapter/9",
+  "rechtschreibung_modernisiert": "ja",
+  "uebersetzung": "original",
+  "gemeint": "Lieber verteilt als alles auf *einmal*.",
+  "fakt_zahl": 78,
+  "fakt_einheit": "%",
+  "fakt_text": "lernten Malstile verteilt besser als am Stück.",
+  "fakt_quelle": "Kornell & Bjork, 2008",
+  "fakt_link": "https://doi.org/10.1111/j.1467-9280.2008.02127.x",
+  "aber": "Aber: 78 % fanden Pauken gleich gut oder besser.",
+  "urteil": "bestaetigt",
+  "tipp": "Heute *kurz*, morgen nochmal.",
+  "ende": "Schick das der Person, die am *Abend davor* lernt.",
+  "sprechtext": [
+   "Du lernst am Abend davor? Fehler.",
+   "Eine angemessene Verteilung … bedeutend vorteilhafter ist als ihre Kumulierung.",
+   "Heißt: Lieber verteilt als alles auf einmal.",
+   "78 Prozent lernten verteilt besser. Aber genauso viele fanden Pauken mindestens gleich gut.",
+   "Recht gehabt? Ja.",
+   "Heute kurz, morgen nochmal.",
+   "Schick das der Person, die am Abend davor lernt."
+  ],
+  "caption": "Ebbinghaus und Lernen erklärt: Bringt Pauken am Abend davor was? Was die Forschung zu verteiltem Lernen sagt.\n\n„… dass bei einer größeren Anzahl von Wiederholungen eine angemessene Verteilung derselben über einen gewissen Zeitraum bedeutend vorteilhafter ist als ihre Kumulierung auf eine bestimmte Zeit.“\nHermann Ebbinghaus, Über das Gedächtnis, § 34 (1885, Rechtschreibung modernisiert)\n\nWas die Forschung sagt: In einem Experiment mit 120 Studierenden lernten 78 % die Malstile von 12 Künstlern besser, wenn die Bilder verteilt statt am Stück kamen. Trotzdem fanden 78 %, Pauken am Stück sei gleich gut oder besser gewesen.\nStudie: Kornell & Bjork (2008), Psychological Science, doi.org/10.1111/j.1467-9280.2008.02127.x\nEine Übersicht über 317 Experimente zeigt außerdem: Je länger du etwas behalten willst, desto größer sollte der Abstand zwischen den Lernrunden sein.\nStudie: Cepeda u. a. (2006), Psychological Bulletin, doi.org/10.1037/0033-2909.132.3.354\n\nUrteil: Bestätigt.\n\nTipp: Heute kurz, morgen nochmal.\n\nSchick das der Person, die am Abend davor lernt.",
+  "hashtags": "#psychologie #lernen #aufschieben #gedaechtnis #ebbinghaus",
+  "themenfeld": "Aufschieben",
+  "status": "geprueft",
+  "geprueft_am": "2026-11-28",
+  "notiz": "Serie 1, gemeinfrei (Ebbinghaus gest. 1909, deutsches Original). Zitat im Volltext Projekt Gutenberg geprüft (Kap. VIII, § 34; Original „Kummulierung“, modernisiert zu „Kumulierung“, „derselben“ per … gekürzt). Zahlen 78 %/78 % im Volltext Kornell & Bjork 2008 geprüft (Exp. 1a, N = 120, Malstile von 12 Künstlern); Cepeda u. a. 2006 per Abstract geprüft (317 Experimente, optimaler Abstand wächst mit Behaltensdauer)."
  }
 ]
